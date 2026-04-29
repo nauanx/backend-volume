@@ -46,6 +46,11 @@ A Helm chart for Kubernetes
 | livenessProbe.tcpSocket.port | string | `"http"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector |
+| persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` |  |
+| persistentVolumeClaim.enabled | bool | `true` |  |
+| persistentVolumeClaim.name | string | `"data-logs"` |  |
+| persistentVolumeClaim.size | string | `"128Mi"` |  |
+| persistentVolumeClaim.storageClass | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |

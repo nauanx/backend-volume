@@ -1,0 +1,17 @@
+{{- if .Values.persistentVolumeClaim.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.persistentVolumeClaim.name }}
+  labels:
+    {{- include "backend-volume.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistentVolumeClaim.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistentVolumeClaim.size }}
+  {{- if .Values.persistentVolumeClaim.storageClass }}
+  storageClassName: {{ .Values.persistentVolumeClaim.storageClass }}
+  {{- end }}
+{{- end }}

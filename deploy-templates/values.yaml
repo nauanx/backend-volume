@@ -78,6 +78,13 @@ readinessProbe:
     port: http
   initialDelaySeconds: 20
 
+persistentVolumeClaim:
+  enabled: true
+  name: data-logs
+  accessMode: ReadWriteOnce
+  size: 128Mi
+  storageClass: ""  # Leave empty to use the cluster default StorageClass
+
 autoscaling:
   enabled: false
   minReplicas: 1
